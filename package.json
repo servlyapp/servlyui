@@ -2,7 +2,7 @@
   "name": "servlyui",
   "version": "0.0.0",
   "private": true,
-  "description": "Servly UI component workspace",
+  "description": "Umbrella catalog and future aggregation layer for Servly UI components",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,28 +12,7 @@
   "bugs": {
     "url": "https://github.com/servlyapp/servlyui/issues"
   },
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "npm run build --workspaces",
-    "lint": "npm run lint --workspaces",
-    "test": "npm run test --workspaces",
-    "typecheck": "npm run typecheck --workspaces",
-    "pack:dry-run": "npm pack --dry-run -w @servlyui/number-input",
-    "playground:install": "npm install --prefix playground/number-input-docs",
-    "playground:dev": "npm --prefix playground/number-input-docs run dev",
-    "playground:build": "npm --prefix playground/number-input-docs run build"
-  },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.6.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "globals": "^17.7.0",
-    "typescript-eslint": "^8.63.0"
   }
 }

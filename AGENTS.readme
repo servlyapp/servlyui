@@ -1,36 +1,20 @@
 # Servly UI Agent Notes
 
-This workspace contains independently publishable Servly UI packages.
+This repository is the umbrella catalog and future aggregation layer for independently owned Servly UI components.
 
-## Rules
+## Ownership
 
-- Do not modify `/Users/eddiesosera/Documents/Dev/Servly/noPrompt-portal` from this workspace unless the user explicitly asks for portal integration.
-- Keep package APIs typed and documented before exporting them.
-- Keep package behavior covered by Vitest or React Testing Library tests when behavior changes.
-- Do not add a shared abstraction until at least two packages need it.
-- Prefer package-local README updates when changing public props, exports, or install instructions.
-- Treat Tailwind as a default design-system preset, not as the only supported design system.
-- Preserve consumer styling hooks such as slot-level `classNames`, `styles`, and adapter injection when changing UI internals.
+- Do not place component implementation source in this repository before a real shared composition layer exists.
+- Each component repository owns its code, tests, documentation playground, package build, and npm release.
+- Link component repositories and npm packages from the root README instead of duplicating source or adding Git submodules.
+- Keep this repository private from npm until it exports an intentional aggregation API.
+- Do not modify `/Users/eddiesosera/Documents/Dev/Servly/noPrompt-portal` unless the user explicitly requests portal integration.
 
-## Commands
+## Current Components
 
-Run from the workspace root:
+- `ServlyNumberInput`: https://github.com/servlyapp/servly-number-input
+- `@servlyui/number-input`: https://www.npmjs.com/package/@servlyui/number-input
 
-```bash
-npm install
-npm run lint
-npm run typecheck
-npm test
-npm run build
-npm run pack:dry-run
-```
+## Future Aggregation
 
-Run from `packages/number-input`:
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run pack:dry-run
-```
+Add workspace tooling only when at least two components require shared documentation, testing, tokens, or composition. Shared abstractions must have a concrete cross-component use case.
