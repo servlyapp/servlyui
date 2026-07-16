@@ -1,0 +1,43 @@
+# @servlyui/number-input Agent Notes
+
+This package owns `ServlyNumberInput`, the atomic numeric input extracted from the portal `ServlyInput`.
+
+## Ownership
+
+- Keep this package focused on number-like values, units, presets, suggestions, and draggable numeric editing.
+- Preserve support for integers and decimals. Use `numberMode` only to narrow raw number suffix behavior when a field explicitly needs integers.
+- Treat Tailwind as the default preset design system. Keep custom `designSystem`, suffix option presets, keywords, and slot styling hooks working for consumers with their own systems.
+- Do not export `ServlyInputText` or other generic input surfaces in v1.
+- Do not import from `/Users/eddiesosera/Documents/Dev/Servly/noPrompt-portal` or use portal aliases like `@/`.
+- Do not mutate `noPrompt-portal` unless the user explicitly asks for integration.
+
+## Public API Rules
+
+- Public props, refs, adapters, and events must live in `src/types.ts`.
+- Public utilities must be intentionally exported from `src/index.ts` and `src/core.ts`.
+- Keep `allowText` only as a deprecated migration alias for `allowCustomValue`.
+- Keep `isTailwind` only as a deprecated alias. New behavior and docs should use `isDesignSystem` and `designSystem`.
+- Keep animation libraries as consumer-side extensions. Use render props, adapters, and lifecycle callbacks instead of adding visual-effect dependencies to the package.
+- Keep haptics as an opt-in extension entrypoint. Do not make the default component play audio unless explicitly requested.
+- Core code must not statically import Ant Design, Lucide, react-icons, or draggable-number-input.
+- Default styled behavior should come through `src/adapters/antd.tsx`.
+
+## Tests
+
+Add or update tests for:
+
+- parsing, conversion, suffix detection, and formatting utilities;
+- integer, decimal, and custom design-system preset behavior;
+- controlled and uncontrolled rendering;
+- typing, blur, suffix switching, suggestions, min/max, disabled/read-only, refs, and drag behavior;
+- adapter precedence and the AntD adapter smoke path.
+
+## Commands
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run pack:dry-run
+```

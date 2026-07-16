@@ -1,0 +1,36 @@
+# Servly UI Agent Notes
+
+This workspace contains independently publishable Servly UI packages.
+
+## Rules
+
+- Do not modify `/Users/eddiesosera/Documents/Dev/Servly/noPrompt-portal` from this workspace unless the user explicitly asks for portal integration.
+- Keep package APIs typed and documented before exporting them.
+- Keep package behavior covered by Vitest or React Testing Library tests when behavior changes.
+- Do not add a shared abstraction until at least two packages need it.
+- Prefer package-local README updates when changing public props, exports, or install instructions.
+- Treat Tailwind as a default design-system preset, not as the only supported design system.
+- Preserve consumer styling hooks such as slot-level `classNames`, `styles`, and adapter injection when changing UI internals.
+
+## Commands
+
+Run from the workspace root:
+
+```bash
+npm install
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run pack:dry-run
+```
+
+Run from `packages/number-input`:
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run pack:dry-run
+```
